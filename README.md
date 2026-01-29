@@ -1,6 +1,8 @@
 # Peter Thompson Portfolio
 
-A modern, dark-mode portfolio website built with Next.js 15, Tailwind CSS, and deployed on Vercel.
+🔗 **Live Site:** https://peter-j-thompson.github.io/peter-thompson-portfolio/
+
+A modern, dark-mode portfolio website built with Next.js 15, Tailwind CSS, and deployed on GitHub Pages.
 
 ## 🚀 Quick Start
 
@@ -14,8 +16,8 @@ npm run dev
 # Build for production
 npm run build
 
-# Start production server
-npm start
+# Deploy to GitHub Pages
+npm run deploy
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view locally.
@@ -139,16 +141,39 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
-1. Push to GitHub
-2. Import project in [Vercel](https://vercel.com)
-3. Deploy automatically on every push
+### Current: GitHub Pages
+The site auto-deploys via gh-pages. To manually deploy:
 
-### Manual Deploy
 ```bash
 npm run build
-# Deploy the `.next` folder to your hosting
+npx gh-pages -d out -b gh-pages --dotfiles
 ```
+
+### Custom Domain
+To use a custom domain (e.g., peterthompson.dev):
+
+1. Update `next.config.ts`:
+   ```typescript
+   const nextConfig: NextConfig = {
+     output: "export",
+     images: { unoptimized: true },
+     // Remove basePath and assetPrefix for root deployment
+   };
+   ```
+
+2. Add CNAME to `public/CNAME`:
+   ```
+   peterthompson.dev
+   ```
+
+3. Configure DNS with your registrar
+
+### Vercel Deployment
+For Vercel (better performance, custom domains):
+
+1. Remove `output: "export"` from next.config.ts
+2. Remove `basePath` and `assetPrefix`
+3. Connect repo to Vercel at vercel.com/new
 
 ## 📝 Adding New Sections
 
@@ -162,7 +187,12 @@ npm run build
 - **Styling:** Tailwind CSS v4
 - **Language:** TypeScript
 - **Fonts:** Inter + JetBrains Mono
-- **Hosting:** Vercel
+- **Hosting:** GitHub Pages (can migrate to Vercel)
+
+## 📂 Repository
+
+- **GitHub:** https://github.com/peter-j-thompson/peter-thompson-portfolio
+- **Local:** ~/projects/portfolio-site/
 
 ## 📄 License
 
