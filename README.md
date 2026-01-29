@@ -1,36 +1,173 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Peter Thompson Portfolio
 
-## Getting Started
+A modern, dark-mode portfolio website built with Next.js 15, Tailwind CSS, and deployed on Vercel.
 
-First, run the development server:
+## 🚀 Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── globals.css    # Global styles & CSS variables
+│   ├── layout.tsx     # Root layout with metadata
+│   └── page.tsx       # Main page assembling all sections
+├── components/
+│   ├── Navbar.tsx     # Fixed navigation with mobile menu
+│   ├── Hero.tsx       # Landing section with terminal aesthetic
+│   ├── About.tsx      # Bio and highlights
+│   ├── Skills.tsx     # Skills with progress bars
+│   ├── Projects.tsx   # Project showcase cards
+│   ├── Services.tsx   # Services offered
+│   ├── Testimonials.tsx # Client testimonials
+│   ├── Contact.tsx    # Contact form and links
+│   └── Footer.tsx     # Footer with social links
+└── data/
+    └── content.ts     # ALL CONTENT LIVES HERE
+```
 
-## Learn More
+## ✏️ How to Update Content
 
-To learn more about Next.js, take a look at the following resources:
+**All content is centralized in `src/data/content.ts`**. Edit this file to update:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Site Config
+```typescript
+export const siteConfig = {
+  name: "Peter Thompson",
+  title: "Full Stack Developer",
+  tagline: "8+ Years Experience",
+  email: "somethingpeter@gmail.com",
+  fiverr: "https://www.fiverr.com/peterthompson",
+  // ...
+};
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### About Section
+```typescript
+export const about = {
+  headline: "Your main headline here",
+  bio: "Your bio text here...",
+  highlights: ["Point 1", "Point 2", "Point 3"],
+};
+```
 
-## Deploy on Vercel
+### Skills
+```typescript
+export const skills = [
+  { name: "Python", category: "backend", level: 95 },
+  // Add more skills...
+];
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Projects
+```typescript
+export const projects = [
+  {
+    id: "project-slug",
+    name: "Project Name",
+    description: "Description here...",
+    tech: ["Tech1", "Tech2"],
+    status: "Live", // or "In Development", "Beta"
+    color: "#ff6b6b", // accent color
+  },
+  // Add more projects...
+];
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Services
+```typescript
+export const services = [
+  {
+    title: "Service Name",
+    description: "Description...",
+    icon: "🚀", // emoji icon
+  },
+  // Add more services...
+];
+```
+
+### Testimonials
+```typescript
+export const testimonials = [
+  {
+    name: "Client Name",
+    role: "Their Role",
+    text: "What they said...",
+    rating: 5,
+  },
+  // Add more testimonials...
+];
+```
+
+## 🎨 Customizing Design
+
+### Colors
+Edit CSS variables in `src/app/globals.css`:
+```css
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --accent: #00ff88;        /* Main accent (green) */
+  --accent-dim: #00cc6a;    /* Hover state */
+  --card-bg: #111111;
+  --card-border: #222222;
+  --text-muted: #888888;
+}
+```
+
+### Fonts
+Edit `src/app/layout.tsx` to change fonts:
+```typescript
+import { Inter, JetBrains_Mono } from "next/font/google";
+```
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+1. Push to GitHub
+2. Import project in [Vercel](https://vercel.com)
+3. Deploy automatically on every push
+
+### Manual Deploy
+```bash
+npm run build
+# Deploy the `.next` folder to your hosting
+```
+
+## 📝 Adding New Sections
+
+1. Create component in `src/components/NewSection.tsx`
+2. Add content to `src/data/content.ts`
+3. Import and add to `src/app/page.tsx`
+
+## 🔧 Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** Tailwind CSS v4
+- **Language:** TypeScript
+- **Fonts:** Inter + JetBrains Mono
+- **Hosting:** Vercel
+
+## 📄 License
+
+MIT License - feel free to use as a template for your own portfolio.
+
+---
+
+Built with ☕ and code.
